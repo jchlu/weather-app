@@ -59,9 +59,9 @@ app.get('/weather', (req, res) => {
   }
   geocode(req.query.address, (error, { longitude, latitude, placeName } = {}) => {
     if (error) { return res.json({ error }) }
-    weather(latitude, longitude, placeName, (error, { description, temperature, feelslike, location, placeName } = {}) => {
+    weather(latitude, longitude, placeName, (error, { description, feelsLike, humidity, icon, location, placeName, precip, temperature } = {}) => {
       if (error) { return res.json({ error }) }
-      res.status(200).json({ description, temperature, feelslike, location, placeName })
+      res.status(200).json({ description, feelsLike, humidity, icon, location, placeName, precip, temperature })
     })
   })
 })
