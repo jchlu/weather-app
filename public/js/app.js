@@ -1,5 +1,3 @@
-console.log('script loaded')
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
@@ -14,11 +12,10 @@ weatherForm.addEventListener('submit', (e) => {
     response.json().then(data => {
       if (data.error) {
         messageOne.textContent = data.error
-        // console.error(data.error)
       } else {
-        const { description, temperature, feelslike, location, placeName } = data
+        const { description, temperature, feelsLike, location, placeName } = data
         messageOne.textContent = location
-        messageTwo.textContent = `${description} and ${temperature} degrees, feels like ${feelslike}`
+        messageTwo.textContent = `${description} and ${temperature} degrees, feels like ${feelsLike}`
         console.log(`The geolocation API reported the address as ${placeName}.`)
       }
     })

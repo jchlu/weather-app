@@ -24,7 +24,7 @@ const weather = (latitude, longitude, placeName, callback) => {
       callback(undefined, {
         description: body.current.weather_descriptions[0],
         temperature: body.current.temperature,
-        feelslike: body.current.feelslike,
+        feelsLike: body.current.feelslike,
         location: `${body.location.name}, ${body.location.region}, ${body.location.country}`,
         placeName
       })
