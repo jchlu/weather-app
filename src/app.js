@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 
 const { geocode } = require('./utils/geocode')
 const { weather } = require('./utils/weather')
-
+const { pickNineRandomImages } = require('./utils/weather-codes')
 // Paths for express config
 const staticPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -24,22 +24,32 @@ app.use(express.static(staticPath))
 app.get('', (req, res) => {
   res.status(200).render('index', {
     title: 'Weather App',
-    name: 'Johnny C-L'
+    name
   })
 })
 
+const name = 'jchlu'
+
 app.get('/about', (req, res) => {
+  const images = pickNineRandomImages()
+  // console.log(images[0])
   res.status(200).render('about', {
     title: 'About Me',
-    name: 'Johnny C-L'
+    name,
+    images
   })
 })
 
 app.get('/help', (req, res) => {
   res.status(200).render('help', {
     title: 'Help Page',
-    msgs: [{ p: 'All these worlds are yours, except Europa.' }, { p: 'Attempt no landings there.' }],
-    name: 'Johnny C-L'
+    msgs: [
+      { p: 'All these worlds are yours except Europa' },
+      { p: 'Attempt no landing there' },
+      { p: 'Use then together' },
+      { p: 'Use them in peace' }
+    ],
+    name
   })
 })
 
@@ -47,7 +57,7 @@ app.get('/help/*', (req, res) => {
   res.status(404).render('404', {
     title: 'Help page not found.',
     errorMessage: 'Sorry, there\'s no Help article found here.',
-    name: 'Johnny C-L'
+    name
   })
 })
 
@@ -70,7 +80,7 @@ app.get('*', (req, res) => {
   res.status(404).render('404', {
     title: 'Ooops! Page not found.',
     errorMessage: 'Sorry, there\'s no page here.',
-    name: 'Johnny C-L'
+    name
   })
 })
 

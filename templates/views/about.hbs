@@ -6,7 +6,24 @@
 <body>
     <div class="main-content">
         {{>header}}
-        <img class="portrait" src="img/fanart.jpg" alt="Fan Art">
+        Built using APIs from MapBox &amp; WeatherStack
+        <div class="weather-icon-grid">
+            <div>
+                <img src="/img/icons/{{images.[0]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[1]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[2]}}.png" alt="weather icon">
+            </div>
+            <div>
+                <img src="/img/icons/{{images.[3]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[4]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[5]}}.png" alt="weather icon">
+            </div>
+            <div>
+                <img src="/img/icons/{{images.[6]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[7]}}.png" alt="weather icon">
+                <img src="/img/icons/{{images.[8]}}.png" alt="weather icon">
+            </div>
+        </div>
     </div>
     {{>footer}}
 </body>

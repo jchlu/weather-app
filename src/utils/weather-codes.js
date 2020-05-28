@@ -289,4 +289,19 @@ const codes = [
   }
 ]
 
-module.exports = codes
+const pickNineRandomImages = _ => {
+  const ids = codes.map(({ WeatherCode }) => WeatherCode)
+  const max = ids.length - 1
+  var images = []
+  for (let i = 1; i <= 9; i++) {
+    var id = Math.floor(Math.random() * Math.floor(max))
+    var mod = !(i % 2) ? codes[id].DayIcon : codes[id].NightIcon
+    images.push(mod)
+  }
+  return images
+}
+
+module.exports = {
+  codes,
+  pickNineRandomImages
+}
