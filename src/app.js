@@ -32,7 +32,6 @@ const name = 'jchlu'
 
 app.get('/about', (req, res) => {
   const images = pickNineRandomImages()
-  // console.log(images[0])
   res.status(200).render('about', {
     title: 'About Me',
     name,

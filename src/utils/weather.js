@@ -1,5 +1,5 @@
 const request = require('postman-request')
-const codes = require('./weather-codes')
+const { codes } = require('./weather-codes')
 
 const {
   WEATHERSTACK_API_ENDPOINT,
