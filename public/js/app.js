@@ -30,7 +30,7 @@ weatherForm.addEventListener('submit', (e) => {
         weatherIcon.hidden = false
         messageOne.textContent = location
         messageTwo.textContent = `${description} and ${temperature} degrees, feels like ${feelsLike}.`
-        messageThree.textContent = `There's a ${precip * 100} % chance of rain and humidity is at ${humidity} %`
+        messageThree.textContent = `The UV Index is ${uvIndex} and humidity is at ${humidity} %`
         console.log(`The geolocation API reported the address as ${placeName}.`)
       }
     })

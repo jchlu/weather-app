@@ -32,14 +32,22 @@ const weather = (latitude, longitude, placeName, callback) => {
     } else {
       // find icon name
       const icon = displayIcon(body.current.weather_code, body.current.is_day)
+      var location = `${body.location.name}, `
+      if (body.location.region) {
+        location += `${body.location.region}, `
+      }
+      if (body.location.country) {
+        location += body.location.country
+      }
+      // `${body.location.name}, ${body.location.region}, ${body.location.country}`
       callback(undefined, {
         description: body.current.weather_descriptions[0],
         feelsLike: body.current.feelslike,
         humidity: body.current.humidity,
         icon,
-        location: `${body.location.name}, ${body.location.region}, ${body.location.country}`,
+        location,
         placeName,
-        precip: body.current.precip,
+        uvIndex: body.current.uv_index,
         temperature: body.current.temperature
       })
     }
