@@ -23,7 +23,7 @@ weatherForm.addEventListener('submit', (e) => {
           icon,
           location,
           placeName,
-          precip,
+          uvIndex,
           temperature
         } = data
         weatherIcon.src = `/img/icons/${icon}.png`
